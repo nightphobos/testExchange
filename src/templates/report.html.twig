@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<h2>Отчет по клиенту {{ clientId }} {{ clientName }}</h2>
+<h3>За период: {{ period }}</h3>
+<h4>Валюта: {{ currency }}</h4>
+<h4>Сумма операций в валюте клиента: {{ sum }}</h4>
+<h4>Сумма операций в USD: {{ usdSum }}</h4>
+<h4><a href="{{ downloadUrl }}">Скачать JSON</a></h4>
+<table>
+    <tr>
+        <td>Дата операции</td>
+        <td>Сумма операции</td>
+    </tr>
+    {% for transaction in transactions %}
+        <tr>
+            {% for value in transaction %}
+                <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
