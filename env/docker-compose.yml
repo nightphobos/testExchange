@@ -1,0 +1,22 @@
+version: '3.4'
+services:
+  mariadb:
+    image: mariadb:10.2
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: main
+    restart: on-failure
+    volumes:
+      - ${PWD}/env/db:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  demoexchange:
+    image: demoexchange:latest
+    depends_on:
+      - mariadb
+    restart: on-failure
+    ports:
+      - 80:80
+    volumes:
+      - ${PWD}/src:/var/www/main
