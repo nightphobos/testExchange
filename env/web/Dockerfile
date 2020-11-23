@@ -50,7 +50,8 @@ RUN addgroup -g 1500 -S nginx && \
     php7-xmlrpc \
     php7-xmlwriter \
     php7-xdebug \
-    php7-zip && \
+    php7-zip \
+    composer && \
     rm /etc/nginx/conf.d/default.conf \
     rm -f /var/cache/apk/*
 
